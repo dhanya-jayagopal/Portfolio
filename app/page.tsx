@@ -1,65 +1,90 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { getAllWork, getAllPosts } from '@/lib/content';
 
 export default function Home() {
+  const FEATURED = getAllWork().filter((w) => w.featured).slice(0, 4);
+  const RECENT   = getAllPosts().slice(0, 3);
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="page">
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-meta">
+          <span className="eyebrow">Seattle · Founding PM, Bomisco</span>
+        </div>
+        <h1 className="hero-headline">
+          I build platforms for a living,<br />
+          and occasionally write <em>about it.</em>
+        </h1>
+        <p className="hero-sub">
+          Currently at <Link href="/work/bomisco">Bomisco</Link>, building a channel data SaaS from scratch.
+          Previously <Link href="/work/docusign">Docusign</Link> and <Link href="/work/leanix">LeanIX</Link>.
+          This page is the only thing I update.
+        </p>
+        <div className="hero-cta">
+          <Link href="/work" className="btn btn-primary">Selected work</Link>
+          <Link href="/writing" className="btn btn-link">Read the writing &nbsp;&rarr;</Link>
+        </div>
+      </section>
+
+      <hr className="rule" />
+
+      {/* WORK */}
+      <section className="section">
+        <header className="section-head">
+          <span className="eyebrow">Selected work</span>
+          <Link href="/work" className="section-more">
+            See all ↗
+          </Link>
+        </header>
+        <ul className="tiles">
+          {FEATURED.map((item) => (
+            <li key={item.slug}>
+              <Link href={`/work/${item.slug}`} className="tile">
+                <div className="tile-img">
+                  <span className="tile-img-label">{item.company}</span>
+                </div>
+                <div className="tile-body">
+                  <div className="tile-meta">{item.role} · {item.tag}</div>
+                  <h3 className="tile-title">
+                    {item.titleEm ? <em>{item.title}</em> : item.title}
+                  </h3>
+                  <p className="tile-desc">{item.desc}</p>
+                </div>
+                <span className="tile-year">{item.year}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <hr className="rule" />
+
+      {/* SPLIT: Now + Recent writing */}
+      <section className="split">
+        <div className="split-col">
+          <span className="eyebrow">Now</span>
+          <p className="lede" style={{ marginTop: 'var(--s-5)', marginBottom: 'var(--s-5)' }}>
+            Building Bomisco, reading everything I can find on AI in enterprise data, and trying to write more consistently.
           </p>
+          <Link href="/now" className="pseudo-link">
+            More on the now page →
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="split-col">
+          <span className="eyebrow">Recent writing</span>
+          <ul className="postlist">
+            {RECENT.map((post) => (
+              <li key={post.slug}>
+                <Link href={`/writing/${post.slug}`} className="postlist-link">
+                  <span className="post-date">{post.date}</span>
+                  <span className="post-title">{post.title}</span>
+                  <span className="post-time">{post.minutes} min</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
