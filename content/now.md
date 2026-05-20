@@ -11,7 +11,7 @@ lede: A page in the now page tradition. I rewrite it roughly every quarter. The 
 
 ## Reading
 
-- Science of Discworld #2 - The Globe
+- Science of Discworld #3 - Darwin's Watch
 - Personal History by Katharine Graham
 - Everything I can find on AI in enterprise data
 
