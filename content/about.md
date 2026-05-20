@@ -1,5 +1,5 @@
 ---
-title: "A short biography, mostly up to date."
+title: "A short biography"
 lede: "I'm a product manager living in Seattle. I started as a software engineer, went to business school, and have spent the last decade building enterprise software — mostly platform products that nobody sees until they stop working."
 ---
 
@@ -9,7 +9,7 @@ I use AI-first tools as a genuine part of my process — Claude Code for rapid p
 
 If you're working on something interesting in enterprise data, AI-first products, or platform infrastructure, I'd like to hear about it.
 
-## Timeline
+## Resume Timeline
 
 2025 — | Founding PM at Bomisco. Building a channel data SaaS from scratch — AI-assisted entity resolution, partner gateway, rules engine.
 2024 — 2025 | Platform PM at Docusign. Led the usage and notifications platform through Docusign's transition from signing tool to multi-feature platform.
@@ -26,7 +26,7 @@ Before | BE in Electronics and Communication Engineering, Amrita School of Engin
 2023 | Deep Learning Specialization — Stanford University (Coursera)
 2022 | Web Development Bootcamp — Udemy
 
-## Elsewhere
+## References
 
 djayagop@gmail.com | mailto:djayagop@gmail.com
 linkedin / jayagopaldhanya | https://linkedin.com/in/jayagopaldhanya/
