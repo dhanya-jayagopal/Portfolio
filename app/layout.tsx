@@ -5,10 +5,10 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Dhanya Jayagopal — Product Manager',
-  description: 'Founding PM at Bomisco. Previously Docusign and LeanIX. I build platforms for a living.',
+  description: 'Founding PM at Bomisco. Previously Docusign and LeanIX. I build products for a living.',
   openGraph: {
     title: 'Dhanya Jayagopal — Product Manager',
-    description: 'Founding PM at Bomisco. Previously Docusign and LeanIX. I build platforms for a living.',
+    description: 'Founding PM at Bomisco. Previously Docusign and LeanIX. I build products for a living.',
     url: 'https://dhanyajayagopal.com',
     siteName: 'Dhanya Jayagopal',
     locale: 'en_US',

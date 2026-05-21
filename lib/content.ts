@@ -32,6 +32,21 @@ export interface Post {
 
 const WORK_DIR    = path.join(process.cwd(), 'content/work');
 const WRITING_DIR = path.join(process.cwd(), 'content/writing');
+const HOME_FILE   = path.join(process.cwd(), 'content/home.md');
+
+export interface HomePage {
+  eyebrow: string;
+  headline: string;
+  headline_em: string;
+  sub: string;
+  now_blurb: string;
+}
+
+export function getHomePage(): HomePage {
+  const raw = fs.readFileSync(HOME_FILE, 'utf8');
+  const { data } = matter(raw);
+  return data as HomePage;
+}
 
 function readDir(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];

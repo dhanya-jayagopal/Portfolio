@@ -1,19 +1,20 @@
 import Link from 'next/link';
-import { getAllWork, getAllPosts } from '@/lib/content';
+import { getAllWork, getAllPosts, getHomePage } from '@/lib/content';
 
 export default function Home() {
   const FEATURED = getAllWork().filter((w) => w.featured).slice(0, 4);
   const RECENT   = getAllPosts().slice(0, 3);
+  const home     = getHomePage();
   return (
     <main className="page">
       {/* HERO */}
       <section className="hero">
         <div className="hero-meta">
-          <span className="eyebrow">Seattle · Founding PM, Bomisco</span>
+          <span className="eyebrow">{home.eyebrow}</span>
         </div>
         <h1 className="hero-headline">
-          I build platforms for a living,<br />
-          and occasionally write <em>about it.</em>
+          {home.headline}<br />
+          <em>{home.headline_em}</em>
         </h1>
         <p className="hero-sub">
           Currently at <Link href="/work/bomisco">Bomisco</Link>, building a channel data SaaS from scratch.
@@ -64,7 +65,7 @@ export default function Home() {
         <div className="split-col">
           <span className="eyebrow">Now</span>
           <p className="lede" style={{ marginTop: 'var(--s-5)', marginBottom: 'var(--s-5)' }}>
-            Building Bomisco, reading everything I can find on AI in enterprise data, and trying to write more consistently.
+            {home.now_blurb}
           </p>
           <Link href="/now" className="pseudo-link">
             More on the now page →
