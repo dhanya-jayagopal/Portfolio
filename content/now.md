@@ -1,24 +1,22 @@
 ---
-updated: May 2025
+updated: October 2026
 lede: A page in the now page tradition. I rewrite it roughly every quarter. The version you're reading is real, until I forget to update it.
 ---
 
 ## Working on
 
-- Bomisco — entity resolution, partner gateway, and the insights layer
+- Bomisco product
 - Learning to write more consistently
-- Exploring agentic workflows for channel data
+- Exploring agentic workflow use cases for channel data
 
 ## Reading
 
-- Science of Discworld #3 - Darwin's Watch
-- Personal History by Katharine Graham
+- Count of Monte Cristo by Alexander Dumas
 - Everything I can find on AI in enterprise data
 
 ## Using
 
 - Claude Code for prototyping, productivity and side projects
-- Vercel V0 for UI iteration
 - Jira and Rovo for project management
 
 ## Thinking about

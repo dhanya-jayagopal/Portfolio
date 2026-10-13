@@ -804,35 +804,37 @@ hr {
 }
 .post-lede { margin: var(--s-6) 0 0; max-width: 56ch; }
 
-.post-body { max-width: 62ch; }
-.post-body p { font-family: var(--font-sans); font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 var(--s-5); max-width: none; }
+.post-body { max-width: 64ch; }
+/* Prose matches the case-study pages (.case-prose / .case-h2 / .case-quote). */
+.post-body p { font-family: var(--font-sans); font-size: 17px; line-height: 1.65; color: var(--ink-2); margin: 0 0 var(--s-5); max-width: none; }
 .post-body h2 {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: 32px;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--ink);
   margin: var(--s-7) 0 var(--s-4);
 }
 .post-body blockquote {
-  margin: var(--s-6) 0;
-  padding: 4px 0 4px var(--s-5);
+  margin: var(--s-7) 0;
+  padding: 2px 0 2px var(--s-5);
   border-left: 2px solid var(--accent);
 }
-.post-body blockquote p { font-family: var(--font-serif); font-size: 26px; line-height: 1.3; color: var(--ink); margin: 0; }
+.post-body blockquote p { font-family: var(--font-serif); font-size: 30px; line-height: 1.25; color: var(--ink); margin: 0; }
 .post-body ul { margin: 0 0 var(--s-5); padding-left: 1.25em; }
-.post-body li { font-family: var(--font-sans); font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 var(--s-3); }
+.post-body li { font-family: var(--font-sans); font-size: 17px; line-height: 1.65; color: var(--ink-2); margin: 0 0 var(--s-3); }
 .post-body li::marker { color: var(--accent); }
 .post-body strong { font-weight: 600; color: var(--ink); }
+/* Drop cap spanning exactly two lines of body text (17px × 1.65 ≈ 56px; the float is 56px tall with its margin), so the lines beside it stay even. */
 .dropcap {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 72px;
-  line-height: 0.85;
+  font-style: normal;
   color: var(--accent);
   float: left;
-  margin: 4px 12px -2px 0;
+  font-size: 72px;
+  line-height: 52px;
+  margin: 4px 10px 0 0;
 }
 .post-sig { margin-top: var(--s-6); }
 

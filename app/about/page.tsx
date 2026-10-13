@@ -41,9 +41,11 @@ function parseAbout(body: string) {
   }
   if (currentSection) sections.push(currentSection);
 
-  const timelineSection      = sections.find((s) => s.label === 'Timeline');
-  const certsSection         = sections.find((s) => s.label === 'Certifications');
-  const elsewhereSection     = sections.find((s) => s.label === 'Elsewhere');
+  // Match headings by keyword, so "## Resume Timeline" or "## References" in about.md still render.
+  const find = (re: RegExp) => sections.find((s) => re.test(s.label));
+  const timelineSection      = find(/timeline/i);
+  const certsSection         = find(/certification/i);
+  const elsewhereSection     = find(/elsewhere|references|links/i);
 
   const timeline: { years: string; what: string }[] =
     timelineSection?.rows.map((r) => ({ years: r.left, what: r.right })) ?? [];
@@ -54,13 +56,19 @@ function parseAbout(body: string) {
   const links: Link_[] =
     elsewhereSection?.rows.map((r) => ({ label: r.left, url: r.right })) ?? [];
 
-  return { bioParagraphs, timeline, certifications, links };
+  const labels = {
+    timeline:       timelineSection?.label ?? 'Timeline',
+    certifications: certsSection?.label ?? 'Certifications',
+    links:          elsewhereSection?.label ?? 'Elsewhere',
+  };
+
+  return { bioParagraphs, timeline, certifications, links, labels };
 }
 
 export default function AboutPage() {
   const raw = fs.readFileSync(path.join(process.cwd(), 'content/about.md'), 'utf8');
   const { data, content } = matter(raw);
-  const { bioParagraphs, timeline, certifications, links } = parseAbout(content);
+  const { bioParagraphs, timeline, certifications, links, labels } = parseAbout(content);
 
   return (
     <main className="page">
@@ -97,7 +105,7 @@ export default function AboutPage() {
       <hr className="rule" />
 
       <section className="section">
-        <span className="eyebrow" style={{ display: 'block', marginBottom: 'var(--s-5)' }}>Timeline</span>
+        <span className="eyebrow" style={{ display: 'block', marginBottom: 'var(--s-5)' }}>{labels.timeline}</span>
         <ul className="timeline">
           {timeline.map((row, i) => (
             <li key={i}>
@@ -112,7 +120,7 @@ export default function AboutPage() {
         <>
           <hr className="rule" />
           <section className="section">
-            <span className="eyebrow" style={{ display: 'block', marginBottom: 'var(--s-5)' }}>Certifications</span>
+            <span className="eyebrow" style={{ display: 'block', marginBottom: 'var(--s-5)' }}>{labels.certifications}</span>
             <ul className="timeline">
               {certifications.map((row, i) => (
                 <li key={i}>
@@ -129,7 +137,7 @@ export default function AboutPage() {
         <>
           <hr className="rule" />
           <section className="section">
-            <span className="eyebrow" style={{ display: 'block', marginBottom: 'var(--s-5)' }}>Elsewhere</span>
+            <span className="eyebrow" style={{ display: 'block', marginBottom: 'var(--s-5)' }}>{labels.links}</span>
             <ul className="elsewhere">
               {links.map((link, i) => (
                 <li key={i}>
