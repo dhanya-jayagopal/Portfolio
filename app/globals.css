@@ -821,6 +821,10 @@ hr {
   border-left: 2px solid var(--accent);
 }
 .post-body blockquote p { font-family: var(--font-serif); font-size: 26px; line-height: 1.3; color: var(--ink); margin: 0; }
+.post-body ul { margin: 0 0 var(--s-5); padding-left: 1.25em; }
+.post-body li { font-family: var(--font-sans); font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 var(--s-3); }
+.post-body li::marker { color: var(--accent); }
+.post-body strong { font-weight: 600; color: var(--ink); }
 .dropcap {
   font-family: var(--font-serif);
   font-style: italic;

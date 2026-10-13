@@ -2,6 +2,16 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllPosts, getPost, getNextPost } from '@/lib/content';
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+
+// **bold** runs inside a paragraph or list item.
+function inline(text: string): ReactNode[] {
+  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part
+  );
+}
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -59,6 +69,15 @@ export default async function PostPage(
               </blockquote>
             );
           }
+          if (para.startsWith('- ')) {
+            return (
+              <ul key={i}>
+                {para.split('\n').map((line, j) => (
+                  <li key={j}>{inline(line.replace(/^- /, ''))}</li>
+                ))}
+              </ul>
+            );
+          }
           if (i === 0) {
             const firstChar = para[0];
             const rest = para.slice(1);
@@ -69,7 +88,7 @@ export default async function PostPage(
               </p>
             );
           }
-          return <p key={i}>{para}</p>;
+          return <p key={i}>{inline(para)}</p>;
         })}
 
         <hr className="rule" />
