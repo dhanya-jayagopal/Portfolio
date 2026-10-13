@@ -89,12 +89,10 @@ This one was a bonus. Rebuilding every screen on the product's real parts meant 
 
 ## What I learned
 
-- **My job shifted.** I went from describing screens to setting rules and reviewing. I wrote fewer specs and spent more time deciding what good looks like, then checking the work against it.
-- **Differences are signals.** When two sources disagree, there's usually a decision waiting to be made. Having them flagged, not resolved automatically, brought those decisions to me.
-- **Build rules into the tools.** A rule in a document needs remembering. A rule built into the parts everyone uses just happens.
-- **Make the toolbox visible.** One page showing every building block turned "reuse or build new?" into a quick check instead of a debate.
-- **Ask where things come from.** Pointing every claim at its source made the AI's work, and my own, easier to trust and faster to review.
-- **Review sets the pace.** Claude Code built faster than I could review, so my review time became the thing to plan around. That's a good problem to have.
+- **Tell the AI which source wins, and have it flag the rest.** Claude Code sensibly followed the product, and that quietly erased prototype ideas the product hadn't caught up to. AI will pick a reference for you if you don't. Name the source of truth up front, and ask for disagreements to be raised rather than resolved, because they're usually product decisions in disguise.
+- **Prototype with production's parts, or you're handing over pictures.** Restyling makes the screenshots match but leaves engineering rebuilding every screen. If your prototype can't use the components engineering ships, close that gap first, and every screen after it gets cheaper.
+- **Put taste in components, not documents.** Without a designer, a style guide is something people forget to read, but one email widget means there's only one way to send an email. When you write a design rule, ask what shared part would make breaking it the harder path, and extend an existing part before adding a new one.
+- **Turn every review comment into a check.** Once you've said "tables should fit their cards", a test should say it from then on. AI builds faster than you can review, so your attention is the real constraint. Automating the measurable things means your review time goes to whether the flow makes sense.
 
 The experiment answered the question I started with. In two weeks we had a working reference for every screen and a handoff engineering could pick up, without pulling engineers off the roadmap. A designer would have caught a lot of this earlier, from experience. Without one, working with AI still got us a consistent design language and a complete set of building blocks, and building them was easier than I expected. The experiment didn't cover everything a designer does; it was about consistency.
 
