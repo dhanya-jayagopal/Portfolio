@@ -7,25 +7,27 @@ tag: Essays
 excerpt: Bomisco has no designer, and our prototype and product were built in different ways. I used the redesign as an experiment in how far Claude Code could take it with minimal engineering time. Here's what I tried, what I noticed and what I learned.
 ---
 
-Bomisco doesn't have a designer. I'm the founding Product Manager, so design work lands on me. For most of this year I built clickable prototypes with an AI prototyping tool and handed them to engineering as the spec.
+Bomisco doesn't have a designer. I'm the founding Product Manager, so design work lands on me. For most of this year I built clickable prototypes with V0, an AI prototyping tool, and handed them to engineering as the spec.
 
 ## The problem
 
-The prototype worked like our product, but it used a completely different design language, so the same table or button looked very different in each. Every screen I designed was really a picture, and engineering had to rebuild it from scratch. Details got lost in translation.
+The prototype was built with Tailwind CSS and shadcn/ui components, while the actual product used Material UI components, two very different-looking design languages. The functionality and interaction patterns were similar, but the styling of the standard parts every product uses, like the buttons, tables, forms and pop-ups, looked different. Every screen I designed in the prototype was really a picture, and engineering had to rebuild it from scratch using Material UI. Details got lost in translation.
 
-The product had its own version of the problem. Over time, different screens had been built in different ways. A small summary box with a number in it looked slightly different from one page to the next. Nobody set out to make it inconsistent. It just happened, one screen at a time. So there were two big gaps. My designs couldn't be built as drawn, and the product didn't have one consistent look to design against.
+The product also had its own version of the problem. Our component library had only a few ready-made parts, so engineers converting each prototype design into Material UI often had to fill the gaps themselves. Each solution made sense on its own screen, but over time they drifted apart. A small summary box, for example, looked slightly different from one page to the next. Nobody set out to make it inconsistent.
+
+So the problem was the two big gaps. My designs couldn't be built as drawn, and the product didn't have one consistent look to design against.
 
 ## The approach
 
-The product was growing and taking on more use cases, so this needed fixing soon. A consistent design language makes the product predictable: users learn it once and can trust it everywhere.
+The product was growing and taking on more use cases, and each one added screens. A consistent design language reduces cognitive load. Once users learn how a table, filter or pop-up works, they can use it the same way everywhere. Without one, every new screen made the product harder to learn.
 
-I treated this problem as an experiment. I wanted to learn how much of this Claude Code could take on, so the redesign would use as little engineering time as possible. Our engineers had a roadmap to build. The real question was how much of the design side a PM working with AI could handle without pulling engineers off it.
+Historically, redesign projects are time-intensive efforts with little immediate customer impact. So I treated this problem as an experiment. I wanted to learn how much of this Claude Code could take on, so the redesign would use as little engineering time as possible. Our engineers had a roadmap to build. The real question was how much of the design side a PM working with AI could handle without pulling engineers off it.
 
-To make the prototype and the product look and work the same, I saw two approaches.
+To make the prototype and the product look, feel and work the same, I saw two approaches.
 
 The first was a paint job. Restyle the prototype so it looked more like the product: same colours, same fonts, same spacing. Quick to do, and the screenshots would look right. But engineering would still rebuild every screen from a picture, so the handoff problem would stay where it was.
 
-The second was to rebuild the prototype from the product's real building blocks. Every product has a set of standard parts: the buttons, tables, forms and pop-ups engineers reuse across screens. If the prototype used those same parts, a screen I designed wouldn't be a picture any more. It would be a working version made of the same pieces engineering uses, so they could follow it closely instead of starting over. Slower up front, but it fixes the handoff for every screen after it.
+The second was to rebuild the prototype from the product's real building blocks. If the prototype was built with those same parts as the actual product, a screen I designed wouldn't be a picture any more. It would be a working version made of the same pieces engineering uses, so they could follow it closely instead of starting over. Slower up front, but it fixes the handoff for every screen after it.
 
 I picked the second mainly because a one-time effort leads to faster development later. The eventual goal is for developers to pick up the prototype's screens, hook them up to the back end, review and deploy.
 
