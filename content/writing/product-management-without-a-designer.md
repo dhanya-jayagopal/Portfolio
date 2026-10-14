@@ -4,10 +4,10 @@ date: October 2026
 minutes: 8
 title: Product management without a designer
 tag: Essays
-excerpt: Bomisco has no designer, and our prototype and product were built in different ways. I used the redesign as an experiment in how far Claude Code could take it with minimal engineering time. Here's what I tried, what I noticed and what I learned.
+excerpt: Bomisco has no UX designer, and our prototype and product were built in different ways. I used the redesign as an experiment in how far Claude Code could take it with minimal engineering time. Here's what I tried, what I noticed and what I learned.
 ---
 
-Bomisco doesn't have a designer. I'm the founding Product Manager, so design work lands on me. For most of this year I built clickable prototypes with V0, an AI prototyping tool, and handed them to engineering as the spec.
+Bomisco doesn't have a UX designer. I'm the founding Product Manager, so design work lands on me. For most of this year I built clickable prototypes with V0, an AI prototyping tool, and handed them to engineering as the spec.
 
 ## The problem
 

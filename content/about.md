@@ -1,6 +1,6 @@
 ---
-title: "A short biography"
-lede: "I'm a product manager living in Seattle. I started as a software engineer, went to business school, and have spent the last decade building enterprise software — mostly platform products that nobody sees until they stop working."
+title: 'A short biography'
+lede: "I'm a product manager living in Seattle. I started as a software engineer, went to business school, and have spent the last decade building enterprise software that solves real business challenges"
 ---
 
 Currently the founding PM at Bomisco, where I'm building a channel data management SaaS from scratch. Before that: a platform PM role at Docusign, three years at LeanIX (now SAP company), and a few stints in analytics and software development.

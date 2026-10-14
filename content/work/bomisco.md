@@ -1,7 +1,7 @@
 ---
 slug: bomisco
 company: Bomisco
-year: "2025"
+year: '2025'
 role: Founding Product Manager
 tag: Current
 title: Bomisco
@@ -14,11 +14,11 @@ desc: Building a 0→1 SaaS for channel data management. AI-assisted entity reso
 lede: The first hire is always the hardest. The second product decision is harder still. Building a channel data SaaS from nothing is mostly about deciding what not to build.
 
 stats:
-  - num: "0→1"
+  - num: '0→1'
     label: Product built from scratch
   - num: AI
     label: Data Cleansing, Transformation and Enrichment
-  - num: "4"
+  - num: '4'
     label: Modules under construction
 
 meta:
@@ -27,7 +27,7 @@ meta:
   - label: Timeline
     value: Dec 2025 — Present
   - label: Stack
-    value: Claude Code · Vercel V0 · OpenAI Marketplace
+    value: Claude Code · Rovo . Vercel V0 · OpenAI Marketplace
   - label: Domain
     value: Channel data management · SaaS
 ---
@@ -41,4 +41,4 @@ The rules engine lets customers define their own enrichment and exceptions logic
 The data insights module surfaces trends and anomalies in the resolved dataset, so operations teams can act before problems compound.
 We built AI-assisted entity resolution as an enhancement, using a combination of semantic matching, rules-based logic and LLM assistance. This helps figure out that "Acme Corp," "ACME Corporation," and "Acme Co." are all the same company.
 
-I use Claude Code for rapid prototyping and Vercel V0 for UI iteration. The feedback loop between idea and working prototype is now measured in hours, not weeks.
+I used to use Vercel V0 for UI iteration. Now I use Claude Code for everything. The feedback loop between idea and working prototype is now measured in hours, not weeks.
