@@ -29,4 +29,4 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Content lives in `content/work/` and `content/writing/` as Markdown files. The home page copy is in `content/home.md`.
+Content lives in `content/` as Markdown files: `home.md`, `about.md`, `now.md`, plus `work/` and `writing/` (each with an `_index.md` for its listing page's heading and intro).

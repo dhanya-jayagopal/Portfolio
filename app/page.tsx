@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllWork, getAllPosts, getHomePage } from '@/lib/content';
+import InlineLinks from '@/components/InlineLinks';
 
 export default function Home() {
   const FEATURED = getAllWork().filter((w) => w.featured).slice(0, 4);
@@ -17,9 +18,7 @@ export default function Home() {
           <em>{home.headline_em}</em>
         </h1>
         <p className="hero-sub">
-          Currently at <Link href="/work/bomisco">Bomisco</Link>, building a channel data SaaS from scratch.
-          Previously <Link href="/work/docusign">Docusign</Link> and <Link href="/work/leanix">LeanIX</Link>.
-          This page is the only thing I update.
+          <InlineLinks text={home.sub} />
         </p>
         <div className="hero-cta">
           <Link href="/work" className="btn btn-primary">Selected work</Link>

@@ -33,6 +33,7 @@ export interface Post {
 const WORK_DIR    = path.join(process.cwd(), 'content/work');
 const WRITING_DIR = path.join(process.cwd(), 'content/writing');
 const HOME_FILE   = path.join(process.cwd(), 'content/home.md');
+const NOW_FILE    = path.join(process.cwd(), 'content/now.md');
 
 export interface HomePage {
   eyebrow: string;
@@ -46,6 +47,35 @@ export function getHomePage(): HomePage {
   const raw = fs.readFileSync(HOME_FILE, 'utf8');
   const { data } = matter(raw);
   return data as HomePage;
+}
+
+export interface WritingIndex {
+  eyebrow: string;
+  title: string;
+  titleEm?: string;
+  lede: string;
+  description: string;
+  empty: string;
+}
+
+export function getWritingIndex(): WritingIndex {
+  const raw = fs.readFileSync(path.join(WRITING_DIR, '_index.md'), 'utf8');
+  return matter(raw).data as WritingIndex;
+}
+
+export interface NowPage {
+  updated: string;
+  title: string;
+  titleEm?: string;
+  description: string;
+  lede: string;
+  body: string;
+}
+
+export function getNowPage(): NowPage {
+  const raw = fs.readFileSync(NOW_FILE, 'utf8');
+  const { data, content } = matter(raw);
+  return { ...data, body: content } as NowPage;
 }
 
 function readDir(dir: string): string[] {

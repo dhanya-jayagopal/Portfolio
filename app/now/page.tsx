@@ -1,12 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { getNowPage } from '@/lib/content';
+import EmTitle from '@/components/EmTitle';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Now — Dhanya Jayagopal',
-  description: 'What I\'m working on and paying attention to right now.',
-};
+export function generateMetadata(): Metadata {
+  return { title: 'Now — Dhanya Jayagopal', description: getNowPage().description };
+}
 
 function parseNow(body: string): { label: string; items: string[] }[] {
   const blocks: { label: string; items: string[] }[] = [];
@@ -26,15 +24,14 @@ function parseNow(body: string): { label: string; items: string[] }[] {
 }
 
 export default function NowPage() {
-  const raw = fs.readFileSync(path.join(process.cwd(), 'content/now.md'), 'utf8');
-  const { data, content } = matter(raw);
-  const blocks = parseNow(content);
+  const data   = getNowPage();
+  const blocks = parseNow(data.body);
 
   return (
     <main className="page">
       <header className="pagehead">
         <span className="eyebrow">Now · last updated {data.updated}</span>
-        <h1 className="pagetitle">Where I&apos;m putting my <em>attention.</em></h1>
+        <h1 className="pagetitle"><EmTitle title={data.title} em={data.titleEm} /></h1>
         <p className="pagelede">{data.lede}</p>
       </header>
 

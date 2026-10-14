@@ -1,32 +1,31 @@
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/content';
+import { getAllPosts, getWritingIndex } from '@/lib/content';
+import EmTitle from '@/components/EmTitle';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Writing — Dhanya Jayagopal',
-  description: 'Essays and notes on product management, platform thinking, and building things.',
-};
+export function generateMetadata(): Metadata {
+  const meta = getWritingIndex();
+  return { title: `${meta.eyebrow} — Dhanya Jayagopal`, description: meta.description };
+}
 
 export default function WritingPage() {
   const posts = getAllPosts();
+  const meta  = getWritingIndex();
 
   return (
     <main className="page">
       <header className="pagehead">
-        <span className="eyebrow">Writing</span>
+        <span className="eyebrow">{meta.eyebrow}</span>
         <h1 className="pagetitle">
-          Essays on product, platforms, <em>and the work.</em>
+          <EmTitle title={meta.title} em={meta.titleEm} />
         </h1>
-        <p className="pagelede">
-          I write about what I&apos;m learning — platform product management, AI-first
-          product thinking, and the realities of enterprise SaaS.
-        </p>
+        <p className="pagelede">{meta.lede}</p>
       </header>
 
       {posts.length === 0 ? (
         <div style={{ borderTop: '1px solid var(--rule)', paddingTop: 'var(--s-7)' }}>
           <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: 22, color: 'var(--ink-3)', margin: 0 }}>
-            Coming soon.
+            {meta.empty}
           </p>
         </div>
       ) : (
