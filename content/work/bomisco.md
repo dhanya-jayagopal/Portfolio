@@ -27,7 +27,7 @@ meta:
   - label: Timeline
     value: Dec 2025 — Present
   - label: Stack
-    value: Claude Code · Rovo . Vercel V0 · OpenAI Marketplace
+    value: Claude Code · Rovo · Vercel V0 · OpenAI Marketplace
   - label: Domain
     value: Channel data management · SaaS
 ---
