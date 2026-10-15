@@ -837,6 +837,30 @@ hr {
   margin: 4px 10px 0 0;
 }
 .post-sig { margin-top: var(--s-6); }
+.post-body h2[id] { scroll-margin-top: var(--s-6); }
+/* TL;DR: a small label above the list, not a full section heading. */
+.post-body .tldr-head {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: var(--tr-wide);
+  color: var(--accent);
+  margin: 0 0 var(--s-3);
+}
+.post-body .tldr-head + ul {
+  background: var(--paper-2);
+  border-left: 2px solid var(--accent);
+  padding: var(--s-5) var(--s-5) var(--s-3) calc(var(--s-5) + 1.25em);
+  margin-bottom: var(--s-6);
+}
+.toc { margin: 0 0 var(--s-7); padding-bottom: var(--s-5); border-bottom: 1px solid var(--rule); }
+.toc ol { margin: var(--s-3) 0 0; padding-left: 1.5em; }
+.toc li { font-family: var(--font-sans); font-size: 16px; line-height: 1.5; margin: 0 0 var(--s-2); color: var(--ink-3); }
+.toc li::marker { color: var(--accent); font-family: var(--font-mono); font-size: 13px; }
+.toc a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.post-figure { margin: var(--s-6) 0 var(--s-7); }
+.post-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: var(--r-2); background: #fff; }
+.post-figure figcaption { font-family: var(--font-sans); font-size: var(--t-small); line-height: 1.5; color: var(--ink-3); margin-top: var(--s-3); }
 
 /* ── Now ──────────────────────────────── */
 .now-list { list-style: none; padding: 0; margin: 0; }
